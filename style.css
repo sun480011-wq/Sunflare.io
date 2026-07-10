@@ -1,220 +1,672 @@
-/* 기본 스타일 초기화 */
-body, html {
+:root {
+    --page-bg: #080b1c;
+    --panel-bg: rgba(22, 27, 61, 0.82);
+    --panel-border: rgba(255, 255, 255, 0.12);
+    --text-main: #f7f8ff;
+    --text-muted: #b8bed8;
+    --accent-cyan: #6de7ff;
+    --accent-pink: #ff7dc8;
+    --accent-violet: #9178ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+html {
     margin: 0;
     padding: 0;
-    height: 100%;
-    /* ▼▼▼ 폰트 수정: 깔끔한 산세리프 폰트로 변경 (Roboto 유사) ▼▼▼ */
-    font-family: 'Open Sans', 'Roboto', Arial, sans-serif;
-    color: white;
+    min-height: 100%;
+    font-family: "Open Sans", "Roboto", Arial, sans-serif;
 }
 
-/* (수정) index.html 전용 스크롤 제거 */
 body.index-page {
-    overflow: hidden;
+    color: var(--text-main);
+    background: var(--page-bg);
 }
 
-/* --- 상단 바 스타일 (index.html 전용) --- */
-header.main-header {
+a {
+    color: inherit;
+}
+
+/* Home header */
+.main-header {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0 0 auto;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 32px;
     width: 100%;
-    padding: 15px 40px; 
-    background-color: rgba(0, 0, 0, 0.7);
-    box-sizing: border-box;
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(6, 9, 25, 0.74);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+#company-name-bar {
+    flex: 0 0 auto;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+#top-nav {
+    flex: 1 1 auto;
+    width: auto;
+}
+
+#main-menu-index,
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#main-menu-index {
+    gap: 28px;
+}
+
+#main-menu-index a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 180ms ease;
+}
+
+#main-menu-index a::after {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+}
+
+#main-menu-index a:hover,
+#main-menu-index a:focus-visible {
+    color: #fff;
+}
+
+#main-menu-index a:hover::after,
+#main-menu-index a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.lang-switcher-container {
+    flex: 0 0 auto;
+}
+
+.lang-switcher {
+    gap: 8px;
+}
+
+.lang-switcher button {
+    display: grid;
+    min-width: 34px;
+    min-height: 34px;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.lang-switcher button.active,
+.lang-switcher button:hover,
+.lang-switcher button:focus-visible {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.09);
+}
+
+/* Hero */
+.main-background {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    height: 100svh;
+    align-items: center;
+    justify-content: center;
+    background-color: #080b1c;
+    background-image: url("images/hero-hypercasual.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-background::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent 52%, rgba(8, 11, 28, 0.18) 68%, rgba(8, 11, 28, 0.78) 88%, #080b1c 100%);
+    content: "";
+    pointer-events: none;
+}
+
+.store-icon-bottom {
+    position: absolute;
+    bottom: 42px;
+    left: 50%;
+    z-index: 2;
+    display: block;
+    transform: translateX(-50%);
+    transition: transform 180ms ease, filter 180ms ease;
+}
+
+.store-icon-bottom img {
+    display: block;
+    width: 190px;
+    height: auto;
+    border-radius: 7px;
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.32));
+}
+
+.store-icon-bottom:hover,
+.store-icon-bottom:focus-visible {
+    filter: brightness(1.08);
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* Games section */
+.games-section {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    margin-top: -1px;
+    overflow: hidden;
+    padding: 128px 32px 92px;
+    scroll-margin-top: 72px;
+    background:
+        linear-gradient(180deg, #080b1c 0%, rgba(8, 11, 28, 0) 18%),
+        radial-gradient(circle at 50% -10%, rgba(109, 231, 255, 0.12), transparent 34%),
+        linear-gradient(150deg, #080b1c 0%, #111331 48%, #090b20 100%);
+}
+
+.games-glow {
+    position: absolute;
+    z-index: -1;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    opacity: 0.22;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.games-glow-left {
+    top: 23%;
+    left: -260px;
+    background: var(--accent-violet);
+}
+
+.games-glow-right {
+    right: -260px;
+    bottom: 8%;
+    background: var(--accent-pink);
+}
+
+.games-shell {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto 54px;
+    text-align: center;
+}
+
+.section-kicker {
+    margin: 0 0 15px;
+    color: var(--accent-cyan);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+.section-heading h1 {
+    margin: 0;
+    font-size: clamp(2.25rem, 5vw, 4.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin: 22px auto 0;
+    color: var(--text-muted);
+    font-size: clamp(1rem, 1.6vw, 1.16rem);
+    line-height: 1.75;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.game-card {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 510px;
+    flex-direction: column;
+    padding: 30px;
+    overflow: hidden;
+    border: 1px solid var(--panel-border);
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(35, 41, 83, 0.9), var(--panel-bg));
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.game-card::before {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(109, 231, 255, 0.08), transparent 36%, rgba(255, 125, 200, 0.08));
+    content: "";
+    pointer-events: none;
+}
+
+.game-card:hover {
+    border-color: rgba(109, 231, 255, 0.36);
+    box-shadow: 0 28px 72px rgba(0, 0, 0, 0.34);
+    transform: translateY(-7px);
+}
+
+.game-icon-link {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 112px;
+    height: 112px;
+    margin-bottom: 26px;
+    border-radius: 25px;
+    outline-offset: 5px;
+}
+
+.game-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: inherit;
+    object-fit: cover;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.28);
+}
+
+.game-card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.game-tags {
+    display: flex;
+    min-height: 27px;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.game-tags span {
+    padding: 6px 10px;
+    border: 1px solid rgba(109, 231, 255, 0.18);
+    border-radius: 999px;
+    color: #c7f6ff;
+    background: rgba(109, 231, 255, 0.08);
+    font-size: 0.69rem;
+    font-weight: 750;
+    letter-spacing: 0.025em;
+}
+
+.game-card h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+}
+
+.game-description {
+    margin: 17px 0 26px;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.72;
+}
+
+.game-link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    margin-top: auto;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.game-link span:last-child {
+    color: var(--accent-cyan);
+    font-size: 1.05rem;
+    transition: transform 180ms ease;
+}
+
+.game-link:hover span:last-child,
+.game-link:focus-visible span:last-child {
+    transform: translate(3px, -3px);
+}
+
+.store-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 52px;
+    padding: 24px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.store-cta p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.store-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 18px;
+    border-radius: 12px;
+    color: #0b1026;
+    background: linear-gradient(105deg, var(--accent-cyan), #b5f4ff);
+    font-size: 0.86rem;
+    font-weight: 850;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.store-cta a:hover,
+.store-cta a:focus-visible {
+    box-shadow: 0 12px 30px rgba(109, 231, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--accent-cyan);
+    outline-offset: 4px;
+}
+
+/* Privacy page */
+.privacy-page {
+    min-height: 100%;
+    padding-top: 80px;
+    color: #303342;
+    background: #fff;
+}
+
+.privacy-page > header {
+    position: fixed;
+    inset: 0 0 auto;
     z-index: 20;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    min-height: 70px;
+    padding: 16px 40px;
+    background: rgba(7, 10, 26, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
-/* 1. 회사명 바 스타일 */
-#company-name-bar {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    margin-right: 40px;
+.privacy-page nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
 }
 
-/* 2. 상단 메뉴 컨테이너 */
-#top-nav {
-    flex-grow: 1;
-}
-
-#top-nav ul {
-    list-style: none;
+.privacy-page nav ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-/* 상단 메뉴 항목 스타일 */
-#top-nav li {
-    margin-right: 25px;
-}
-
-#top-nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px; 
-    font-weight: normal;
-    transition: color 0.3s;
-    white-space: nowrap;
-}
-
-#top-nav a:hover {
-    color: #00bcd4;
-}
-
-/* 3. 상단 스토어 아이콘 스타일 (삭제됨) */
-
-
-/* 헤더 및 네비게이션 스타일 (privacy.html에서 사용) */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 40px;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-sizing: border-box;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-/* (추가) privacy.html의 nav 내부 ul#main-menu를 가운데로 */
-nav #main-menu {
-    flex-grow: 1;
-    justify-content: center;
-}
-
-
-nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
 }
 
-nav li {
-    margin-left: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s;
-    white-space: nowrap;
-}
-
-nav a:hover {
-    color: #cccccc;
-}
-
-/* 4. 언어 선택 메뉴 공통 스타일 */
-.lang-switcher-container {
-    position: static;
-    margin-left: 30px;
-    top: auto;
-    right: auto;
-}
-
-.lang-switcher li {
-    margin-left: 15px;
-}
-
-.lang-switcher a {
-    text-decoration: none;
-    color: #ffffff80;
-    font-size: 14px;
-    font-weight: bold;
-    transition: color 0.3s;
-    white-space: nowrap;
-    text-shadow: 0 0 5px rgba(0,0,0,0.7); 
-}
-
-.lang-switcher a.active {
-    color: #fff;
-}
-
-.lang-switcher a:hover {
-    color: #fff;
-}
-
-
-/* 메인 배경 이미지 */
-.main-background {
-    height: 100vh;
-    background-image: url('images/main-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
+.privacy-page #main-menu {
     justify-content: center;
-    align-items: center;
-    flex-direction: column; 
 }
 
-/* --- 중앙 하단 스토어 아이콘 스타일 (신규) --- */
-.main-background .store-icon-bottom {
-    /* ▼▼▼ 이 부분이 수정되었습니다: 중앙 하단 고정 배치 ▼▼▼ */
-    position: fixed;
-    bottom: 40px; /* 하단에서 40px 위 */
-    left: 50%;
-    transform: translateX(-50%); /* 중앙 정렬 */
-    z-index: 10;
-    opacity: 0.9;
-    transition: opacity 0.3s;
-}
-
-.main-background .store-icon-bottom img {
-    display: block;
-    width: 200px; /* 적당한 크기로 조정 */
-    height: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-}
-
-.main-background .store-icon-bottom:hover {
-    opacity: 1.0;
-}
-
-
-/* --- 중앙 내용 패널 스타일 (비활성화) --- */
-#center-content-panel {
-    display: none; 
-}
-
-/* --- 개인정보 처리방침 페이지 전용 스타일 --- */
-.privacy-page {
-    overflow: auto !important;
-    color: #333;
-    background: #fff;
-    padding-top: 80px; /* 헤더 높이만큼 여백 유지 */
+.privacy-page nav a {
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 .privacy-container {
     max-width: 800px;
-    margin: 20px auto 40px auto;
+    margin: 20px auto 40px;
     padding: 20px;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
-.privacy-container h1 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+.privacy-container a {
+    color: #3857c8;
+}
+
+@media (max-width: 900px) {
+    .main-header {
+        gap: 22px;
+        padding-inline: 24px;
+    }
+
+    #company-name-bar {
+        font-size: 1.55rem;
+    }
+
+    #main-menu-index {
+        gap: 20px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .game-card:last-child {
+        grid-column: 1 / -1;
+        min-height: 430px;
+    }
+}
+
+@media (max-width: 720px) {
+    .main-header {
+        display: grid;
+        grid-template-areas:
+            "brand language"
+            "navigation navigation";
+        grid-template-columns: 1fr auto;
+        gap: 10px 14px;
+        padding: 11px 16px 12px;
+    }
+
+    #company-name-bar {
+        grid-area: brand;
+        font-size: 1.35rem;
+    }
+
+    #top-nav {
+        grid-area: navigation;
+    }
+
+    #main-menu-index {
+        justify-content: center;
+        gap: clamp(14px, 5vw, 28px);
+    }
+
+    #main-menu-index a {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        font-size: 0.78rem;
+    }
+
+    .lang-switcher-container {
+        grid-area: language;
+    }
+
+    .lang-switcher button {
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 0.7rem;
+    }
+
+    .main-background {
+        background-position: center;
+    }
+
+    .store-icon-bottom {
+        bottom: 32px;
+    }
+
+    .store-icon-bottom img {
+        width: 180px;
+    }
+
+    .games-section {
+        padding: 112px 18px 70px;
+        scroll-margin-top: 94px;
+    }
+
+    .section-heading {
+        margin-bottom: 38px;
+        text-align: left;
+    }
+
+    .section-heading h1 {
+        font-size: clamp(2.25rem, 12vw, 3.4rem);
+    }
+
+    .section-intro {
+        margin-top: 18px;
+        line-height: 1.65;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .game-card,
+    .game-card:last-child {
+        grid-column: auto;
+        min-height: 0;
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .game-icon-link {
+        width: 96px;
+        height: 96px;
+        margin-bottom: 22px;
+        border-radius: 22px;
+    }
+
+    .store-cta {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 36px;
+        text-align: center;
+    }
+
+    .store-cta a {
+        justify-content: center;
+    }
+
+    .privacy-page {
+        padding-top: 72px;
+    }
+
+    .privacy-page > header {
+        min-height: 60px;
+        padding: 12px 14px;
+    }
+
+    .privacy-page nav,
+    .privacy-page nav ul {
+        gap: 15px;
+    }
+
+    .privacy-page nav a {
+        font-size: 0.77rem;
+    }
+
+    .privacy-container {
+        padding-inline: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+
+    .game-card:hover,
+    .store-cta a:hover,
+    .store-cta a:focus-visible {
+        transform: none;
+    }
+
+    .store-icon-bottom:hover,
+    .store-icon-bottom:focus-visible {
+        transform: translateX(-50%);
+    }
+
+    .game-link:hover span:last-child,
+    .game-link:focus-visible span:last-child {
+        transform: none;
+    }
 }

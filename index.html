@@ -1,37 +1,125 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunflare</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Discover casual mobile games from Sunflare.">
+    <title>Sunflare | Mobile Games</title>
+    <link rel="stylesheet" href="style.css?v=20260710-3">
 </head>
-<body class="index-page"> 
-
+<body class="index-page">
     <header class="main-header">
-        <div id="company-name-bar">Sunflare</div>
+        <a id="company-name-bar" href="#home" aria-label="Sunflare home">Sunflare</a>
 
-        <nav id="top-nav">
+        <nav id="top-nav" aria-label="Main navigation">
             <ul id="main-menu-index">
+                <li><a href="#games" data-lang-ko="게임" data-lang-en="Games">Games</a></li>
                 <li><a href="privacy.html" data-lang-ko="개인정보 처리방침" data-lang-en="Privacy Policy">Privacy Policy</a></li>
                 <li><a href="#" id="contact-link" data-lang-ko="문의하기" data-lang-en="Contact Us">Contact Us</a></li>
             </ul>
         </nav>
 
         <div class="lang-switcher-container">
-            <ul class="lang-switcher">
-                <li><a href="#" class="lang-btn" data-lang="ko">KR</a></li>
-                <li><a href="#" class="lang-btn active" data-lang="en">EN</a></li>
+            <ul class="lang-switcher" aria-label="Language">
+                <li><button type="button" class="lang-btn" data-lang="ko" aria-pressed="false" aria-label="한국어로 전환">KR</button></li>
+                <li><button type="button" class="lang-btn active" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button></li>
             </ul>
         </div>
     </header>
 
-    <main class="main-background">
-        <a href="https://play.google.com" target="_blank" class="store-icon-bottom">
-            <img src="images/google-play-icon.png" alt="Google Play Store"> 
-        </a>
-        </main>
+    <main>
+        <section id="home" class="main-background" aria-label="Sunflare">
+            <a
+                href="https://play.google.com/store/apps/developer?id=Sunflare"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="store-icon-bottom"
+                aria-label="Explore Sunflare games on Google Play"
+                data-aria-ko="Google Play에서 선플레어 게임 전체 보기"
+                data-aria-en="Explore Sunflare games on Google Play"
+            >
+                <img src="images/google-play-icon.png" alt="Get it on Google Play" data-alt-ko="Google Play에서 다운로드" data-alt-en="Get it on Google Play" width="270" height="80">
+            </a>
+        </section>
 
-    <script src="script.js"></script>
+        <section id="games" class="games-section" aria-labelledby="games-title">
+        <div class="games-glow games-glow-left" aria-hidden="true"></div>
+        <div class="games-glow games-glow-right" aria-hidden="true"></div>
+
+        <div class="games-shell">
+            <header class="section-heading">
+                <p class="section-kicker" data-lang-ko="선플레어의 게임" data-lang-en="SUNFLARE GAMES">SUNFLARE GAMES</p>
+                <h1 id="games-title" data-lang-ko="가볍게 시작하고, 나만의 방식으로 즐겨보세요" data-lang-en="Start casual. Play your way.">Start casual. Play your way.</h1>
+                <p class="section-intro" data-lang-ko="간단한 조작에 성장과 수집의 재미를 더한 선플레어의 대표 모바일 게임을 만나보세요." data-lang-en="Discover Sunflare's casual mobile games, where simple controls meet rewarding growth and collection.">Discover Sunflare's casual mobile games, where simple controls meet rewarding growth and collection.</p>
+            </header>
+
+            <div class="games-grid">
+                <article class="game-card">
+                    <a class="game-icon-link" href="https://play.google.com/store/apps/details?id=com.Sunflare.animestreamerclicker" target="_blank" rel="noopener noreferrer" aria-label="Anime Streamer Clicker on Google Play" data-aria-ko="Google Play에서 Anime Streamer Clicker 보기" data-aria-en="Anime Streamer Clicker on Google Play">
+                        <img class="game-icon" src="images/games/anime-streamer-clicker.webp" alt="Anime Streamer Clicker game icon" data-alt-ko="Anime Streamer Clicker 게임 아이콘" data-alt-en="Anime Streamer Clicker game icon" width="160" height="160" loading="lazy">
+                    </a>
+                    <div class="game-card-content">
+                        <div class="game-tags">
+                            <span data-lang-ko="방치형 클리커" data-lang-en="Idle Clicker">Idle Clicker</span>
+                            <span data-lang-ko="커스터마이징" data-lang-en="Customization">Customization</span>
+                        </div>
+                        <h2>Anime Streamer Clicker</h2>
+                        <p class="game-description" data-lang-ko="애니메이션 스타일의 스트리머가 되어 클릭으로 시청자와 수익을 늘려보세요. 의상과 방송 장비를 모으고 방과 집을 업그레이드하며 채널을 성장시킬 수 있습니다." data-lang-en="Become an anime-style streamer and grow your audience with every tap. Collect outfits, upgrade your gear and room, and build a channel that keeps earning while you are away.">Become an anime-style streamer and grow your audience with every tap. Collect outfits, upgrade your gear and room, and build a channel that keeps earning while you are away.</p>
+                        <a class="game-link" href="https://play.google.com/store/apps/details?id=com.Sunflare.animestreamerclicker" target="_blank" rel="noopener noreferrer">
+                            <span data-lang-ko="Google Play에서 보기" data-lang-en="View on Google Play">View on Google Play</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <a class="game-icon-link" href="https://play.google.com/store/apps/details?id=com.Sunflare.lovebeamrun" target="_blank" rel="noopener noreferrer" aria-label="Love Beam Run on Google Play" data-aria-ko="Google Play에서 Love Beam Run 보기" data-aria-en="Love Beam Run on Google Play">
+                        <img class="game-icon" src="images/games/love-beam-run.webp" alt="Love Beam Run game icon" data-alt-ko="Love Beam Run 게임 아이콘" data-alt-en="Love Beam Run game icon" width="160" height="160" loading="lazy">
+                    </a>
+                    <div class="game-card-content">
+                        <div class="game-tags">
+                            <span data-lang-ko="캐주얼 러너" data-lang-en="Casual Runner">Casual Runner</span>
+                            <span data-lang-ko="캐릭터 수집" data-lang-en="Character Collection">Character Collection</span>
+                        </div>
+                        <h2>Love Beam Run</h2>
+                        <p class="game-description" data-lang-ko="스테이지를 달리며 알맞은 타이밍에 매력 액션을 사용해보세요. 자원을 모아 능력을 강화하고 다양한 캐릭터와 일러스트를 수집할 수 있습니다." data-lang-en="Dash through colorful stages and unleash charm at just the right moment. Collect unique characters, power up your abilities, and take on new challenges.">Dash through colorful stages and unleash charm at just the right moment. Collect unique characters, power up your abilities, and take on new challenges.</p>
+                        <a class="game-link" href="https://play.google.com/store/apps/details?id=com.Sunflare.lovebeamrun" target="_blank" rel="noopener noreferrer">
+                            <span data-lang-ko="Google Play에서 보기" data-lang-en="View on Google Play">View on Google Play</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="game-card">
+                    <a class="game-icon-link" href="https://play.google.com/store/apps/details?id=com.Sunflare.animeswipe" target="_blank" rel="noopener noreferrer" aria-label="Anime Swipe Idle Merge on Google Play" data-aria-ko="Google Play에서 Anime Swipe Idle Merge 보기" data-aria-en="Anime Swipe Idle Merge on Google Play">
+                        <img class="game-icon" src="images/games/anime-swipe-idle-merge.webp" alt="Anime Swipe Idle Merge game icon" data-alt-ko="Anime Swipe Idle Merge 게임 아이콘" data-alt-en="Anime Swipe Idle Merge game icon" width="160" height="160" loading="lazy">
+                    </a>
+                    <div class="game-card-content">
+                        <div class="game-tags">
+                            <span data-lang-ko="방치형 머지" data-lang-en="Idle Merge">Idle Merge</span>
+                            <span data-lang-ko="퍼즐" data-lang-en="Puzzle">Puzzle</span>
+                        </div>
+                        <h2>Anime Swipe : Idle Merge</h2>
+                        <p class="game-description" data-lang-ko="같은 캐릭터 토큰을 스와이프로 합쳐 더 높은 단계로 성장시키는 2048 스타일의 방치형 머지 게임입니다. 자동으로 쌓이는 코인으로 보드를 업그레이드하고 새로운 캐릭터 일러스트를 열어보세요." data-lang-en="Swipe and merge matching character tokens in a 2048-style idle puzzle. Use the coins you earn over time to upgrade the board and unlock new character art.">Swipe and merge matching character tokens in a 2048-style idle puzzle. Use the coins you earn over time to upgrade the board and unlock new character art.</p>
+                        <a class="game-link" href="https://play.google.com/store/apps/details?id=com.Sunflare.animeswipe" target="_blank" rel="noopener noreferrer">
+                            <span data-lang-ko="Google Play에서 보기" data-lang-en="View on Google Play">View on Google Play</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="store-cta">
+                <p data-lang-ko="더 많은 게임이 기다리고 있어요" data-lang-en="More games are waiting">More games are waiting</p>
+                <a href="https://play.google.com/store/apps/developer?id=Sunflare" target="_blank" rel="noopener noreferrer">
+                    <span data-lang-ko="선플레어 게임 전체 보기" data-lang-en="Explore all Sunflare games">Explore all Sunflare games</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <script src="script.js?v=20260710-3"></script>
 </body>
 </html>
